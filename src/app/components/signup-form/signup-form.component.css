@@ -1,0 +1,10 @@
+.form-container {
+  width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form-field {
+  margin-bottom: 10px;
+}
