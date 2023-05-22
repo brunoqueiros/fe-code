@@ -18,10 +18,7 @@ jobs:
         run: npm ci
 
       - name: 🧪 Unit tests
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm start
+        run: npm run coverage
 
       - name: 🤖 Cypress run
         uses: cypress-io/github-action@v5
