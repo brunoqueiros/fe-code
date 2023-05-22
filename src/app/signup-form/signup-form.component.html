@@ -20,7 +20,7 @@
     <mat-error
       [appHumanizeErrors]="signupForm.controls.lastName.errors"
       #appHumanizeErrorsRef="appHumanizeErrors"
-      data-testid="signup-first-name-errors"
+      data-testid="signup-last-name-errors"
       *ngIf="signupForm.controls.lastName.errors && signupForm.controls.lastName.touched"
     >
       <li *ngFor="let error of appHumanizeErrorsRef.errors">
@@ -35,7 +35,7 @@
     <mat-error
       [appHumanizeErrors]="signupForm.controls.email.errors"
       #appHumanizeErrorsRef="appHumanizeErrors"
-      data-testid="signup-first-name-errors"
+      data-testid="signup-email-errors"
       *ngIf="signupForm.controls.email.errors && signupForm.controls.email.touched"
     >
       <li *ngFor="let error of appHumanizeErrorsRef.errors">
@@ -50,7 +50,7 @@
     <mat-error
       [appHumanizeErrors]="signupForm.controls.password.errors"
       #appHumanizeErrorsRef="appHumanizeErrors"
-      data-testid="signup-first-name-errors"
+      data-testid="signup-password-errors"
       *ngIf="signupForm.controls.password.errors && signupForm.controls.password.touched"
     >
       <li *ngFor="let error of appHumanizeErrorsRef.errors">
