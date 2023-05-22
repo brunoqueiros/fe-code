@@ -18,15 +18,6 @@ describe('Signup form', () => {
     cy.findByTestId('signup-submit-button').should('be.enabled');
   });
 
-  it('Submit button should be enabled', () => {
-    cy.visit('/');
-    cy.findByTestId('signup-first-name').type('Bruno');
-    cy.findByTestId('signup-last-name').type('Queiros');
-    cy.findByTestId('signup-email').type('bruno@bruno.com');
-    cy.findByTestId('signup-password').type('1234QWEasd');
-    cy.findByTestId('signup-submit-button').should('be.enabled');
-  });
-
   it('Show snack bar component when form is subimited', () => {
     cy.intercept('POST', 'https://demo-api.vercel.app/users').as('addUsers');
     cy.visit('/');
