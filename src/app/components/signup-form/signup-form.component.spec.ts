@@ -272,11 +272,7 @@ describe('SignupFormComponent', () => {
         input.dispatchEvent(new Event('blur'));
         expect(password.value).toBe('BrunoQueiros');
         expect(password.valid).toBe(false);
-        expect(password.errors).toEqual({
-          forbiddenName: {
-            value: 'BrunoQueiros'
-          }
-        });
+        expect(password.errors).toEqual({ forbiddenName: true });
       });
 
       it('should be valid', () => {

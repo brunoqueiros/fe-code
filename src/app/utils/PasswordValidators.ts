@@ -12,15 +12,12 @@ export class PasswordValidators {
   }
 
   static forbiddenName(control: AbstractControl): ValidationErrors | null {
-    const formValues = control.parent?.getRawValue();
+    const firstName = control.parent?.get('firstName')?.value;
+    const lastName = control.parent?.get('lastName')?.value;
+    const hasFirstName = firstName ? new RegExp(firstName, 'i').test(control.value) : false;
+    const hasLastName = lastName ? new RegExp(lastName, 'i').test(control.value) : false;
+    const forbidden = hasFirstName || hasLastName;
 
-    if (!formValues) return null;
-
-    const { firstName, lastName } = formValues;
-
-    if (firstName === '' || lastName === '') return null;
-
-    const forbidden = new RegExp(`${firstName}|${lastName}`, 'i').test(control.value);
-    return forbidden ? { forbiddenName: { value: control.value }} : null;
+    return forbidden ? { forbiddenName: true } : null;
   }
 }

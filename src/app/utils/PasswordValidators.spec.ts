@@ -42,7 +42,7 @@ describe('PasswordValidators', () => {
         lastName: new FormControl('queiros'),
         password: new FormControl('bruno'),
       });
-      expect(PasswordValidators.forbiddenName(signupForm.controls.password)).toEqual({ forbiddenName: { value: 'bruno' } });
+      expect(PasswordValidators.forbiddenName(signupForm.controls.password)).toEqual({ forbiddenName: true });
     });
   
     it('should return an error', () => {
@@ -51,7 +51,7 @@ describe('PasswordValidators', () => {
         lastName: new FormControl('queiros'),
         password: new FormControl('queiros'),
       });
-      expect(PasswordValidators.forbiddenName(signupForm.controls.password)).toEqual({ forbiddenName: { value: 'queiros' } });
+      expect(PasswordValidators.forbiddenName(signupForm.controls.password)).toEqual({ forbiddenName: true });
     });
   });
 });
