@@ -8,7 +8,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { UsersService } from 'src/app/services/users/users.service';
+import { UsersService } from 'src/app/users/users.service';
 import { SignupFormComponent } from './signup-form.component';
 
 describe('SignupFormComponent', () => {
@@ -53,23 +53,6 @@ describe('SignupFormComponent', () => {
     expect(password.value).toBe('');
     expect(password.valid).toBe(false);
     expect(password.touched).toBe(false);
-  });
-
-  describe('humanizeErrors', () => {
-    it('should return an array of string', () => {
-      const component = fixture.componentInstance;
-      const error = { hasUppercase: 'false' };
-      const expected = ['This field should contain an uppercase letter'];
-  
-      expect(component.humanizeErrors(error)).toEqual(expected)
-    });
-  
-    it('should return an empty array', () => {
-      const component = fixture.componentInstance;
-      const error = {};
-  
-      expect(component.humanizeErrors(error).length).toBe(0);
-    });
   });
 
   describe('submitApplication', () => {

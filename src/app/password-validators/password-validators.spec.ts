@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { PasswordValidators } from './PasswordValidators';
+import { PasswordValidators } from './password-validators';
 
 describe('PasswordValidators', () => {
   describe('hasLowercase', () => {
