@@ -1,3 +1,3 @@
 export interface JSONObject {
-  [x: string]: string
+  [x: string]: any
 }

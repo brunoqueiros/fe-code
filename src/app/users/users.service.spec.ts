@@ -40,7 +40,7 @@ describe('UsersService', () => {
       done();
     });
 
-    const request = httpTestingController.expectOne(BASE_USER_URL);
+    const request = httpTestingController.expectOne(`${BASE_USER_URL}/users`);
     request.flush(response);
     expect(request.request.method).toBe('POST');
   });

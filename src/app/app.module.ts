@@ -10,13 +10,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
-import { HumanizeErrorsDirective } from './humanize-errors/humanize-errors.directive';
+import { FormFieldComponent } from './form-field/form-field.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupFormComponent,
-    HumanizeErrorsDirective,
+    SignupFormComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -28,6 +27,7 @@ import { HumanizeErrorsDirective } from './humanize-errors/humanize-errors.direc
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
+    FormFieldComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

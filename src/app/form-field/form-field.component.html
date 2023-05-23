@@ -1,0 +1,14 @@
+<mat-form-field subscriptSizing="dynamic" class="signup-form-field">
+  <mat-label>{{label}}</mat-label>
+  <input
+    matInput
+    [attr.type]="type"
+    [attr.data-testid]="testid"
+    [formControl]="formCtrl"
+  />
+  <mat-error *ngIf="formCtrl.touched" [attr.data-testid]="testid + '-errors'">
+    <li *ngFor="let error of humanizeErrors(formCtrl.errors)">
+      {{error}}
+    </li>
+  </mat-error>
+</mat-form-field>

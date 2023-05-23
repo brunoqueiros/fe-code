@@ -10,6 +10,7 @@ import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { UsersService } from 'src/app/users/users.service';
 import { SignupFormComponent } from './signup-form.component';
+import { FormFieldComponent } from '../form-field/form-field.component';
 
 describe('SignupFormComponent', () => {
   let fixture: ComponentFixture<SignupFormComponent>;
@@ -26,6 +27,7 @@ describe('SignupFormComponent', () => {
         MatFormFieldModule,
         MatSnackBarModule,
         NoopAnimationsModule,
+        FormFieldComponent,
       ]
     }).compileComponents();
 

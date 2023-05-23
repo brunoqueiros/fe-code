@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { UsersService } from 'src/app/users/users.service';
 import { PasswordValidators } from 'src/app/password-validators/password-validators';
+import { FormFieldComponent } from '../form-field/form-field.component';
 
 @Component({
   selector: 'app-signup-form',
@@ -32,6 +33,19 @@ export class SignupFormComponent {
 
   constructor(private _snackBar: MatSnackBar, private usersService: UsersService) {}
 
+  clearForm() {
+    this.signupForm.reset();
+    Object.keys(this.signupForm.controls).forEach(control => {
+      this.signupForm.get(control)?.setErrors(null) ;
+    });
+  }
+
+  openSnackBar() {
+    this._snackBar.open('🎉 User created', '', {
+      duration: 3000,
+    });
+  }
+
   submitApplication() {
     const { firstName, lastName, email, password } = this.signupForm.value;
 
@@ -44,14 +58,8 @@ export class SignupFormComponent {
       })
       .subscribe(user => {
         if (user !== null) {
-          this.signupForm.reset();
-          Object.keys(this.signupForm.controls).forEach(control => {
-            this.signupForm.get(control)?.setErrors(null) ;
-          });
-
-          this._snackBar.open('🎉 User created', '', {
-            duration: 3000,
-          });
+          this.clearForm();
+          this.openSnackBar();
         }
       })
     }

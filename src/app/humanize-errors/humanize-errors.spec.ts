@@ -1,16 +1,6 @@
-import { HumanizeErrorsDirective } from './humanize-errors.directive';
+import humanizeErrors from './humanize-errors';
 
-describe('HumanizeErrorsDirective', () => {
-  let directive: HumanizeErrorsDirective;
-
-  beforeEach(() => {
-    directive = new HumanizeErrorsDirective();
-  });
-
-  it('should create an instance', () => {
-    expect(directive).toBeTruthy();
-  });
-
+describe('humanizeErrors', () => {
   it('should humanize errors', () => {
     const errors = {
       required: true,
@@ -31,16 +21,16 @@ describe('HumanizeErrorsDirective', () => {
       'You cannot use your first name or last name',
       'This field should have at least 8 letters'
     ];
-    directive.appHumanizeErrors = errors;
+    const humanizedErrors = humanizeErrors(errors);
 
-    expect(directive.errors).toEqual(expected);
+    expect(humanizedErrors).toEqual(expected);
   });
 
   it('should return an empty array', () => {
-    const errors = null;
+    const errors = {};
     const expected: string[] = [];
-    directive.appHumanizeErrors = errors;
+    const humanizedErrors = humanizeErrors(errors);
 
-    expect(directive.errors).toEqual(expected);
+    expect(humanizedErrors).toEqual(expected);
   });
 });

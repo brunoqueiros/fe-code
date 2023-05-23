@@ -9,7 +9,7 @@ interface User {
   password: string;
 }
 
-export const BASE_USER_URL = 'https://demo-api.vercel.app/users';
+export const BASE_USER_URL = 'https://demo-api.vercel.app';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,6 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   createUser(user: User): Observable<User> {
-    return this.http.post<User>(BASE_USER_URL, user, this.httpOptions);
+    return this.http.post<User>(`${BASE_USER_URL}/users`, user, this.httpOptions);
   }
 }
